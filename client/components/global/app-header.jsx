@@ -7,8 +7,16 @@ AppHeader = React.createClass({
     };
   },
   render() {
-    return <NavBar id="app-header" brandLink={ this.data.brandLink } brand="Application Name">
+    return <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" className="w-nav navbar">
+      <div className="w-container">
+         <a href="#" className="w-nav-brand w-clearfix">
+            <img width="130" src="images/avr_logo.png" className="right-logo" />
+         </a>
       { this.props.hasUser ? <AuthenticatedNavigation user={ this.data.user } /> : <PublicNavigation /> }
-    </NavBar>;
+         <div className="w-nav-button menu-button">
+            <div className="w-icon-nav-menu"></div>
+         </div>
+      </div>
+   </div>;
   }
 });

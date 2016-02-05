@@ -6,7 +6,7 @@ FormControl = React.createClass({
       </label>;
     } else {
       return <label htmlFor={ this.props.name }>
-        <span className="pull-left">{ this.props.label }</span>
+        <label className="pull-left">{ this.props.label }</label>
         <a className="pull-right" href={ this.props.labelLink.href }>
           { this.props.labelLink.label }
         </a>
@@ -18,14 +18,14 @@ FormControl = React.createClass({
       input: <input
         ref={ this.props.ref }
         type={ this.props.type }
-        className="form-control"
+        className="w-input"
         name={ this.props.name }
         placeholder={ this.props.label }
       />,
       textarea: <textarea
         ref={ this.props.ref }
         name={ this.props.name }
-        className="form-control"
+        className="w-input"
         placeholder={ this.props.label }
       ></textarea>
     };

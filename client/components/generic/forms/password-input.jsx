@@ -7,7 +7,7 @@ PasswordInput = React.createClass({
       style="input"
       name="password"
       type="password"
-      label="Password"
+      label="Lösenord"
     />;
   }
 });

@@ -23,7 +23,7 @@ App = React.createClass({
   },
   render() {
     return <div className="app-root">
-      <AppHeader hasUser={ this.data.hasUser } />
+      { this.data.hasUser ? <AppHeader hasUser={ this.data.hasUser } /> : '' }
       <div className="container">
         { this.data.loggingIn ? <Loading /> : this.getView() }
       </div>

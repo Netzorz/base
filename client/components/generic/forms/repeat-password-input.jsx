@@ -7,7 +7,7 @@ RepeatPasswordInput = React.createClass({
       style="input"
       name="repeatPassword"
       type="password"
-      label="Repeat Password"
+      label="Upprepa lösenord"
     />;
   }
 });

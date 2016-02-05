@@ -1,26 +1,25 @@
 NavBarNav = React.createClass({
   renderDropdown( item, index ) {
     let active = item.active ? 'dropdown active' : '';
-    return <li key={ `nav-item-${ item.uid }` } className={ active }>
-      <a href={ item.href } className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        { item.label } <span className="caret"></span>
-      </a>
+    return <div data-delay="0" className="w-dropdown">
+         <div className="w-dropdown-toggle nav-link">
+            <div>{ item.label }</div><div className="w-icon-dropdown-toggle"></div>
+
+         </div>
       <DropdownMenu items={ item.dropdownItems } />
-    </li>;
+    </div>;
   },
   renderItem( item, index ) {
     let active = item.active ? 'active' : '';
-    return <li key={ `nav-item-${ item.uid }` } className={ active }>
-      <a href={ item.href }>{ item.label }</a>
-    </li>;
+    return <a href={ item.href }  className='w-nav-link nav-link ${ active }'>{ item.label }</a>;
   },
   render() {
-    let classes = this.props.position ? `nav navbar-nav ${ this.props.position }` : 'nav navbar-nav';
-    return <ul className={ classes }>
+    let classes = this.props.position ? `w-nav-menu ${ this.props.position }` : 'w-nav-menu';
+    return <nav role="navigation" className="w-nav-menu">
       {this.props.items.map( ( item, index ) => {
         item.active = FlowRouter.getRouteName() === item.uid;
         return item.dropdown ? this.renderDropdown( item, index ) : this.renderItem( item, index );
       })}
-    </ul>;
+</nav>;
   }
 });

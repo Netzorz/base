@@ -14,8 +14,8 @@ Login = React.createClass({
       },
       messages: {
         emailAddress: {
-          required: 'Need an email address here.',
-          email: 'Is this email address legit?'
+          required: 'Du måste fylla i din e-postadress',
+          email: 'Du måste fylla i ditt lösenord'
         },
         password: {
           required: 'Need a password here.'
@@ -44,28 +44,28 @@ Login = React.createClass({
   render() {
     let passwordLabelLink = {
       href: '/recover-password',
-      label: 'Forget Password?'
+      label: 'Glömt lösenord?'
     };
 
-    return <GridRow>
-      <GridColumn className="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-        <PageHeader size="h4" label="Log In" />
-        <InfoAlert>
-          To access the demo, you can use the email address <strong>admin@admin.com</strong> and the password <strong>password</strong>.
-        </InfoAlert>
-        <Form ref="loginForm" id="login" className="login" validations={ this.validations() } onSubmit={ this.handleSubmit }>
-          <FormGroup>
-            <EmailInput ref="emailAddress" showLabel={ true } />
-          </FormGroup>
-          <FormGroup>
-            <PasswordInput ref="password" showLabel={ true } labelLink={ passwordLabelLink } />
-          </FormGroup>
-          <FormGroup>
-            <SuccessButton type="submit" label="Login" />
-          </FormGroup>
-        </Form>
-        <p>Don't have an account? <a href="/signup">Sign Up</a>.</p>
-      </GridColumn>
-    </GridRow>;
+    return <div className="w-section">
+        <div className="w-container login-container">
+           <div className="w-clearfix login-box"><img width="130" src="images/avr_logo.png" className="right-logo" />
+             <div className="w-clearfix login-form">
+               <div className="w-form">
+                  <Form ref="loginForm" id="login" className="login" validations={ this.validations() } onSubmit={ this.handleSubmit }>
+                  <EmailInput ref="emailAddress" showLabel={ true } />
+                  <PasswordInput ref="password" showLabel={ true } />
+                  <Button type="submit" label="Logga in" extraClass="_100" />
+                  </Form>
+                  <br />
+                  <div className="right-thing">
+                     <a href={ passwordLabelLink.href } >{ passwordLabelLink.label } </a>
+                     </div>
+               </div>
+           </div>
+         </div>
+       </div>
+    </div>
+
   }
 });

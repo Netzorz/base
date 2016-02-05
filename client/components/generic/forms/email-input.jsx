@@ -6,7 +6,7 @@ EmailInput = React.createClass({
       style="input"
       name="emailAddress"
       type="email"
-      label="Email Address"
+      label="E-postadress"
     />;
   }
 });

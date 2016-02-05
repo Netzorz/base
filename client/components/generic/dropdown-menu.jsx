@@ -4,15 +4,13 @@ DropdownMenu = React.createClass({
   },
   renderItem( item, index ) {
     let active = item.active ? 'active' : '';
-    return <li key={ `nav-item-${ item.uid }` } className={ active } onClick={ item.action }>
-      <a href={ item.href }>{ item.label }</a>
-    </li>;
+    return <a  className="w-dropdown-link dropdown-link ${ active }" onClick={ item.action } href={ item.href }>{ item.label }</a>;
   },
   render() {
-    return <ul className="dropdown-menu">
+    return <nav className="w-dropdown-list">
       {this.props.items.map( ( item, index ) => {
         return item.divider ? this.renderDivider( item, index ) : this.renderItem( item, index );
       })}
-    </ul>;
+   </nav>;
   }
 });

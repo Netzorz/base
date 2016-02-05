@@ -6,31 +6,29 @@ AuthenticatedNavigation = React.createClass({
     return {
       items: {
         left: [
-          { uid: 'index', href: '/', label: 'Index' },
-          { uid: 'dashboard', href: '/dashboard', label: 'Dashboard' }
-        ],
-        right: [
+          { uid: 'index', href: '/', label: 'Rapportera avvikelse' },
+          { uid: 'dashboard', href: '/user', label: 'Din sida' },
           {
             uid: 'currentUser',
             href: '#',
-            label: userEmail,
+            label: 'Netzorz AB',
             dropdown: true,
             dropdownItems: [
-              { uid: 'logout', href: '#', label: 'Logout', action: () => {
-                return Meteor.logout( () => {
-                  FlowRouter.go( '/login' );
-                });
-              }}
+              { uid: 'usergroups', href: '#', label: 'Användare & grupper' }
             ]
-          }
-        ]
+         },
+         { uid: 'logout', href: '#', label: 'Logga ut', action: () => {
+            return Meteor.logout( () => {
+             FlowRouter.go( '/login' );
+            });
+         }}
+       ]
       }
     };
   },
   render() {
     return <div className="authenticated-navigation">
-      <NavBarNav position={ `navbar-left` } items={ this.data.items.left } />
-      <NavBarNav position={ `navbar-right` } items={ this.data.items.right } />
+      <NavBarNav items={ this.data.items.left } />
     </div>;
   }
 });

@@ -2,6 +2,8 @@ let startup = () => {
   _setEnvironmentVariables();
   _setBrowserPolicies();
   _generateAccounts();
+  BrowserPolicy.content.allowOriginForAll( '*.typekit.net' );
+BrowserPolicy.content.allowFontDataUrl( '*.typekit.net' );
 };
 
 var _setEnvironmentVariables = () => Modules.server.setEnvironmentVariables();
